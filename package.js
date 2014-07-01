@@ -6,7 +6,7 @@ Package.describe({
 });
 
 Package.on_use(function (api) {
-  api.add_files('lib/compile.js');
+  api.add_files('lib/compiler.js');
   api.add_files('lib/path.js');
   api.export('Iron');
 });
