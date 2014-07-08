@@ -6,9 +6,10 @@ Package.describe({
 });
 
 Package.on_use(function (api) {
+  api.use('iron-core');
+  api.imply('iron-core');
   api.add_files('lib/compiler.js');
   api.add_files('lib/url.js');
-  api.export('Iron');
 });
 
 Package.on_test(function (api) {
