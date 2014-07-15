@@ -24,11 +24,11 @@ Tinytest.add('Url - parse', function (test) {
   url = '/page1?query=string#hashfrag';
   parts = Url.parse(url);
   test.equal(parts.href, url);
-  test.equal(parts.protocol, undefined);
-  test.equal(parts.host, undefined);
-  test.equal(parts.hostname, undefined);
-  test.equal(parts.port, undefined);
-  test.equal(parts.origin, undefined);
+  test.equal(parts.protocol, '');
+  test.equal(parts.host, '');
+  test.equal(parts.hostname, '');
+  test.equal(parts.port, '');
+  test.equal(parts.origin, '');
   test.equal(parts.pathname, '/page1');
   test.equal(parts.path, '/page1?query=string');
   test.equal(parts.search, '?query=string');
