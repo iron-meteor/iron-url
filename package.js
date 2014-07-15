@@ -6,6 +6,7 @@ Package.describe({
 });
 
 Package.on_use(function (api) {
+  api.use('underscore');
   api.use('iron-core');
   api.imply('iron-core');
   api.add_files('lib/compiler.js');
