@@ -16,9 +16,9 @@ Tinytest.add('Url - parse', function (test) {
   test.equal(parts.port, '3000');
   test.equal(parts.origin, 'http://localhost.com:3000');
   test.equal(parts.pathname, '/page1/');
-  test.equal(parts.path, '/page1/?query=string');
-  test.equal(parts.search, '?query=string');
-  test.equal(parts.query, 'query=string');
+  test.equal(parts.path, '/page1/?query=string', url);
+  test.equal(parts.search, '?query=string', url);
+  test.equal(parts.query, 'query=string', url);
   test.equal(parts.hash, '#hashfrag');
 
   url = '/page1?query=string#hashfrag';
@@ -45,10 +45,10 @@ Tinytest.add('Url - parse', function (test) {
   test.equal(parts.port, '3000');
   test.equal(parts.origin, 'http://localhost.com:3000');
   test.equal(parts.pathname, '/page1/');
-  test.equal(parts.path, '/page1/?query=string');
-  test.equal(parts.search, '?query=string');
-  test.equal(parts.query, 'query=string');
-  test.equal(parts.hash, '#hashfrag');
+  test.equal(parts.path, '/page1/?query=string', url);
+  test.equal(parts.search, '?query=string', url);
+  test.equal(parts.query, 'query=string', url);
+  test.equal(parts.hash, '#hashfrag', url);
 });
 
 Tinytest.add('Url - normalize', function (test) {
