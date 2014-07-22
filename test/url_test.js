@@ -168,3 +168,23 @@ Tinytest.add('Url - matching', function (test) {
   test.isTrue(path.exec('/commits/123..456'));
   */
 });
+
+Tinytest.add('Url - params', function (test) {
+  var path = new Url(paths.explicit);
+  test.isUndefined(path.params('/posts').foo);
+  test.equal(path.params('/posts?foo=bar').foo, 'bar');
+  test.equal(path.params('/posts?foo[]=bar').foo, ['bar']);
+  test.equal(path.params('/posts?foo%5B%5D=bar').foo, ['bar']);
+  test.equal(path.params('/posts?foo[]=bar&foo[]=baz').foo, ['bar', 'baz']);
+  test.equal(path.params('/posts?foo%5B%5D=bar&foo%5B%5D=baz').foo, ['bar', 'baz']);
+});
+
+Tinytest.add('Url - resolve', function (test) {
+  var path = new Url(paths.explicit);
+  test.equal(path.resolve({}), '/posts');
+  test.equal(path.resolve({}, {query: {foo: 'bar'}}), '/posts?foo=bar');
+  test.equal(path.resolve({}, {query: {foo: ['bar']}}), '/posts?foo%5B%5D=bar');
+  test.equal(path.resolve({}, {query: {foo: ['bar', 'baz']}}), '/posts?foo%5B%5D=bar&foo%5B%5D=baz');
+  // no good resolution of this one
+  test.equal(path.resolve({}, {query: {foo: []}}), '/posts');
+});
