@@ -6,15 +6,15 @@ Package.describe({
 
 Package.on_use(function (api) {
   api.use('underscore');
-  api.use('iron:core');
-  api.imply('iron:core');
-  api.addFiles('lib/compiler.js');
-  api.addFiles('lib/url.js');
+  api.use('iron-core');
+  api.imply('iron-core');
+  api.add_files('lib/compiler.js');
+  api.add_files('lib/url.js');
 });
 
 Package.on_test(function (api) {
-  api.use('iron:url');
+  api.use('iron-url');
   api.use('tinytest');
   api.use('test-helpers');
-  api.addFiles('test/url_test.js', ['client', 'server']);
+  api.add_files('test/url_test.js', ['client', 'server']);
 });
