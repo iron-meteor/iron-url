@@ -10,7 +10,7 @@ Package.on_use(function (api) {
   api.use('iron:core@1.0.0-pre0');
   api.imply('iron:core');
 
-  api.add_files('lib/compiler.js');
+  api.add_files('lib/old_compiler.js');
   api.add_files('lib/url.js');
 });
 
