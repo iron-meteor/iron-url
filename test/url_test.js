@@ -80,7 +80,7 @@ var paths = {
   regex: /^\/commits\/(\d+)\.\.(\d+)/
 };
 
-Tinytest.add('Url - matching', function (test) {
+Tinytest.add('Url - matching and params', function (test) {
   var path = new Url(paths.explicit);
   test.isTrue(path.test('/posts'));
   test.isTrue(path.exec('/posts'));
@@ -169,14 +169,14 @@ Tinytest.add('Url - matching', function (test) {
   */
 });
 
-Tinytest.add('Url - params', function (test) {
+Tinytest.add('Url - query params', function (test) {
   var path = new Url(paths.explicit);
   test.isUndefined(path.params('/posts').foo);
-  test.equal(path.params('/posts?foo=bar').foo, 'bar');
-  test.equal(path.params('/posts?foo[]=bar').foo, ['bar']);
-  test.equal(path.params('/posts?foo%5B%5D=bar').foo, ['bar']);
-  test.equal(path.params('/posts?foo[]=bar&foo[]=baz').foo, ['bar', 'baz']);
-  test.equal(path.params('/posts?foo%5B%5D=bar&foo%5B%5D=baz').foo, ['bar', 'baz']);
+  test.equal(path.params('/posts?foo=bar').query.foo, 'bar');
+  test.equal(path.params('/posts?foo[]=bar').query.foo, ['bar']);
+  test.equal(path.params('/posts?foo%5B%5D=bar').query.foo, ['bar']);
+  test.equal(path.params('/posts?foo[]=bar&foo[]=baz').query.foo, ['bar', 'baz']);
+  test.equal(path.params('/posts?foo%5B%5D=bar&foo%5B%5D=baz').query.foo, ['bar', 'baz']);
 });
 
 Tinytest.add('Url - resolve', function (test) {
