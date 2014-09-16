@@ -1,12 +1,16 @@
 {
   "dependencies": [
     [
+      "base64",
+      "1.0.0"
+    ],
+    [
       "ejson",
-      "1.0.1-rc0"
+      "1.0.2"
     ],
     [
       "iron:core",
-      "1.0.0-pre0"
+      "1.0.0-pre1"
     ],
     [
       "json",
@@ -14,7 +18,7 @@
     ],
     [
       "meteor",
-      "1.1.0-rc0"
+      "1.1.0"
     ],
     [
       "underscore",
@@ -22,6 +26,6 @@
     ]
   ],
   "pluginDependencies": [],
-  "toolVersion": "meteor-tool@CHECKOUT",
+  "toolVersion": "meteor-tool@1.0.30",
   "format": "1.0"
 }

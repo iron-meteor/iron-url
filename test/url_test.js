@@ -1,6 +1,3 @@
-/**
- * XXX wildcard and named wildcard paths are not working.
- */
 var Url = Iron.Url;
 
 Tinytest.add('Url - parse', function (test) {
@@ -150,7 +147,6 @@ Tinytest.add('Url - matching and params', function (test) {
   test.isNull(path.exec('/1/2/3/4'));
 
   /*
-  FIXME
   path = new Url(paths.wildcard);
   console.log(path);
   test.isTrue(path.test('/posts/1/2'));
