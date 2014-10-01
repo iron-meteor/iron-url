@@ -184,3 +184,13 @@ Tinytest.add('Url - resolve', function (test) {
   // no good resolution of this one
   test.equal(path.resolve({}, {query: {foo: []}}), '/posts');
 });
+
+Tinytest.add('Url - missing params', function (test) {
+  var path = new Url(paths.multi);
+  test.equal(path.resolve(null), null, 'no params results in null path');
+  
+  // path.resolve should throw an error if required params are missing
+  test.throws(function () {
+    path.resolve(null, {throwOnMissingParams: true});
+  });
+});
