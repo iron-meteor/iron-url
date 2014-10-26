@@ -1,13 +1,13 @@
 Package.describe({
   summary: "Url utilities and support for compiling a url into a regular expression.",
-  version: "1.0.0-pre4",
+  version: "1.0.0-pre5",
   git: "https://github.com/eventedmind/iron-url"
 });
 
 Package.on_use(function (api) {
   api.use('underscore@1.0.0');
 
-  api.use('iron:core@1.0.0-pre4');
+  api.use('iron:core@1.0.0-pre5');
   api.imply('iron:core');
 
   api.add_files('lib/compiler.js');
