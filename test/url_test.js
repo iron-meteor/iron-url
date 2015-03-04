@@ -53,7 +53,7 @@ Tinytest.add('Url - normalize', function (test) {
 
   url = '/items';
   test.equal(Url.normalize(url), '/items');
-  
+
   url = '/items/';
   test.equal(Url.normalize(url), '/items');
 
@@ -173,6 +173,8 @@ Tinytest.add('Url - query params', function (test) {
   test.equal(path.params('/posts?foo%5B%5D=bar').query.foo, ['bar']);
   test.equal(path.params('/posts?foo[]=bar&foo[]=baz').query.foo, ['bar', 'baz']);
   test.equal(path.params('/posts?foo%5B%5D=bar&foo%5B%5D=baz').query.foo, ['bar', 'baz']);
+  test.equal(path.params('/posts?foo=a+b').query.foo, 'a b');
+  test.equal(path.params('/posts?foo=a%2Bb').query.foo, 'a+b');
 });
 
 Tinytest.add('Url - resolve', function (test) {
@@ -188,7 +190,7 @@ Tinytest.add('Url - resolve', function (test) {
 Tinytest.add('Url - missing params', function (test) {
   var path = new Url(paths.multi);
   test.equal(path.resolve(null), null, 'no params results in null path');
-  
+
   // path.resolve should throw an error if required params are missing
   test.throws(function () {
     path.resolve(null, {throwOnMissingParams: true});
