@@ -169,6 +169,7 @@ Tinytest.add('Url - query params', function (test) {
   var path = new Url(paths.explicit);
   test.isUndefined(path.params('/posts').foo);
   test.equal(path.params('/posts?foo=bar').query.foo, 'bar');
+  test.equal(path.params('/posts?foo=bar%2Bbaz').query.foo, 'bar+baz');
   test.equal(path.params('/posts?foo[]=bar').query.foo, ['bar']);
   test.equal(path.params('/posts?foo%5B%5D=bar').query.foo, ['bar']);
   test.equal(path.params('/posts?foo[]=bar&foo[]=baz').query.foo, ['bar', 'baz']);
