@@ -1,15 +1,16 @@
 Package.describe({
-  name: "iron:url",
-  summary: "Url utilities and support for compiling a url into a regular expression.",
-  version: "1.0.9",
-  git: "https://github.com/eventedmind/iron-url",
-  documentation: null
+  name: 'iron:url',
+  summary: 'Url utilities and support for compiling a url into a regular expression.',
+  version: '1.0.11',
+  git: 'https://github.com/iron-meteor/iron-url'
 });
 
 Package.on_use(function (api) {
-  api.use('underscore@1.0.0');
+  api.versionsFrom('METEOR@0.9.2');
+  
+  api.use('underscore');
 
-  api.use('iron:core@1.0.8');
+  api.use('iron:core@1.0.11');
   api.imply('iron:core');
 
   api.add_files('lib/compiler.js');
