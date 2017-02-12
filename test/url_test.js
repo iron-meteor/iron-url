@@ -176,6 +176,7 @@ Tinytest.add('Url - query params', function (test) {
   test.equal(path.params('/posts?foo%5B%5D=bar&foo%5B%5D=baz').query.foo, ['bar', 'baz']);
   test.equal(path.params('/posts?foo=a+b').query.foo, 'a b');
   test.equal(path.params('/posts?foo=a%2Bb').query.foo, 'a+b');
+  test.equal(path.params('/posts?foo=a%2520b').query.foo, 'a%20b');
 });
 
 Tinytest.add('Url - resolve', function (test) {
